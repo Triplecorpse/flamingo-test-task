@@ -1,46 +1,44 @@
-# Getting Started with Create React App
+# Flamingo test task
+## Description
+**🦩Flamingo Home Assignment Full-Stack Engineer**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+We’d like to get a sense of how you structure full-stack applications, work with modern frameworks, and handle typical frontend/backend tasks. This assignment is not tied to Flamingo’s domain; feel free to choose any topic or idea that’s simple but meaningful to you.
 
-## Available Scripts
+**🛠️ What to do:**
 
-In the project directory, you can run:
+Build a small full-stack web application
 
-### `npm start`
+Frontend: React + TailwindCSS for styling
+Backend: Node.js or any other language
+The app should include basic CRUD functionality connected to a database (PostgreSQL, MongoDB, etc.)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Implement SSO authentication
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Integrate a simple Single Sign-On (SSO) flow (e.g., Google, GitHub, or similar via OAuth2)
+Use a service like Auth0, Firebase Auth, or direct OAuth integration — up to you
 
-### `npm test`
+Include database interaction
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Store and retrieve data from a database
+You can use an ORM (e.g., Prisma, TypeORM, Sequelize) or raw queries
 
-### `npm run build`
+Note: For database needs, you can use services like Supabase, and for deployment, platforms like Vercel,  both of which offer free tiers for small-scale projects and provide fast, reliable performance.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**✅ Expected Deliverables:**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+A link to a public GitHub repository with:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Full source code (frontend + backend)
 
-### `npm run eject`
+Set up instructions in a README.md (how to run locally, env setup, etc.)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Brief notes on your architecture and decisions (can be in README or a separate file)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+A working deployment URL (the project should be deployed and accessible, not just left with instructions to run it.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+This task is not meant to take too many hours. We value your time and want to get a clear picture of how you approach full-stack development in a clean, thoughtful, and structured way.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Looking forward to seeing your work! Good luck! 🦩 💫
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
