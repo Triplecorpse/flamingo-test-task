@@ -26,7 +26,7 @@ export default function GoogleRedirectClient({token}: { token?: string | null })
             } catch (e) {
                 console.error("Failed to process Google token:", e);
             } finally {
-                // router.replace("/");
+                router.replace("/");
             }
         }
 
