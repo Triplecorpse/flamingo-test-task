@@ -73,3 +73,8 @@ The application should now be accessible at `NEXT_PUBLIC_SITE_URL`.
 
 This README covers all necessary steps to get the project running, including OAuth integration and database setup.
 
+
+## 5. Notes
+1. The Auth flow is extremely simplified for the sake of the demo. Use 3rd part authorization or handle access and refresh tokens manually together with the database. Here I only validate Google's ID token that is not enough for production.
+2. I could use Google Auth with the set of tokens. But I would like to take the most of One Tap approach and if it failed, use the regular redirect flow.
+ 
