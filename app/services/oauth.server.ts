@@ -7,8 +7,5 @@ export async function verifyGoogleToken(token: string) {
         idToken: token,
         audience: process.env.GOOGLE_CLIENT_ID
     });
-    const payload = ticket.getPayload();
-    const userid = payload?.sub;
-
-    return payload;
+    return ticket.getPayload();
 }

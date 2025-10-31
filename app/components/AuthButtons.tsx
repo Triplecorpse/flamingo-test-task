@@ -5,7 +5,7 @@ import {getGoogleIdToken} from "../../lib/google/googleToken";
 export default function AuthButtons() {
     async function signInWithGoogle() {
         const token = await getGoogleIdToken();
-        await fetch('/api/health', { method: "POST", body: JSON.stringify({ token }) });
+        await fetch('/api/google', { method: "POST", body: JSON.stringify({ token: token }) });
     }
 
     return (
