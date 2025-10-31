@@ -5,6 +5,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body className="min-h-screen bg-gray-50 text-gray-900">
+        <script src="https://accounts.google.com/gsi/client" async defer></script>
         {children}
       </body>
     </html>

@@ -3,14 +3,15 @@ import supabaseServer from '../../../lib/supabase/server';
 
 export async function GET() {
   const hasServerEnv = Boolean(
+    process.env.SUPABASE_URL ||
     process.env.NEXT_PUBLIC_SUPABASE_URL
   ) && Boolean(
-    process.env.NEXT_PUBLIC_SUPABASE_KEY
+    process.env.SUPABASE_KEY ||
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
   );
 
   try {
     const supabase = supabaseServer();
-
     const { data, error } = await supabase.auth.getSession();
     return NextResponse.json({
       ok: !error,

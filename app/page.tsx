@@ -1,9 +1,15 @@
 import Image from 'next/image';
 import HealthCheck from './components/HealthCheck';
 
+import AuthButtons from './components/AuthButtons';
+
+
 export default function Home() {
   return (
     <main className="min-h-screen flex flex-col items-center justify-center gap-6 p-6">
+      {/* One Tap is invisible; it will prompt if eligible */}
+
+
       <div className="text-center">
         <div className="mx-auto w-32 h-32 relative">
           <Image src="/logo512.png" alt="logo" width={128} height={128} priority />
@@ -17,6 +23,11 @@ export default function Home() {
 
       <div className="w-full">
         <HealthCheck />
+      </div>
+
+      <div className="w-full max-w-xl mx-auto grid gap-3">
+        <AuthButtons />
+
       </div>
     </main>
   );
