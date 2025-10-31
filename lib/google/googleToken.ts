@@ -77,7 +77,7 @@ export const getGoogleIdToken = (): Promise<string> => {
             }
 
             // Check if user suppressed the prompt and redirect to classic OAuth
-            if (notification.getNotDisplayedReason() === "suppressed_by_user") {
+            if (notification.getNotDisplayedReason() === "suppressed_by_user" || notification.getNotDisplayedReason() === "unregistered_origin") {
                 const redirectUri = `${window.location.origin}/google-redirect`;
                 const scope = "email profile";
                 const responseType = "code";
