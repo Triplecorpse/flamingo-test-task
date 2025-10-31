@@ -80,7 +80,7 @@ export const getGoogleIdToken = (): Promise<string> => {
             if (notification.getNotDisplayedReason() === "suppressed_by_user") {
                 const redirectUri = `${window.location.origin}/google-redirect`;
                 const scope = "email profile";
-                const responseType = "id_token";
+                const responseType = "code";
 
                 const classicOAuthUrl =
                     `https://accounts.google.com/o/oauth2/v2/auth?` +
