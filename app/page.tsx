@@ -1,5 +1,6 @@
 import AuthButton from './components/AuthButton';
 import AuthCheck from './components/AuthCheck';
+import TodoInput from './components/TodoInput';
 
 export default function Home() {
   return (
@@ -7,6 +8,7 @@ export default function Home() {
       <AuthCheck />
       <div className="w-full max-w-xl mx-auto grid gap-3">
         <AuthButton />
+        <TodoInput />
       </div>
     </main>
   );
