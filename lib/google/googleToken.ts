@@ -1,3 +1,34 @@
+declare global {
+    interface Window {
+        google: {
+            accounts: {
+                id: {
+                    initialize: (config: any) => void;
+                    cancel: () => void;
+                    prompt: (a: any) => void;
+                    renderButton: (element: HTMLElement, config: any) => void;
+                    onPromptNotification?: (notification: any) => void;
+                };
+            };
+        };
+    }
+}
+
+interface GoogleNotification {
+    getDismissedReason: () => string | null;
+    getMomentType: () => "display" | "skipped" | "dismissed";
+    getNotDisplayedReason: () =>
+        | "browser_not_supported"
+        | "suppressed_by_user"
+        | "unregistered_origin"; // | "other";
+    getSkippedReason: () => string | null;
+    isDismissedMoment: () => any;
+    isDisplayMoment: () => any;
+    isDisplayed: () => any;
+    isNotDisplayed: () => any;
+    isSkippedMoment: () => any;
+}
+
 export const getGoogleIdToken = (): Promise<string> => {
     return new Promise((resolve, reject) => {
         // Check if Google Identity Services is loaded
@@ -31,7 +62,7 @@ export const getGoogleIdToken = (): Promise<string> => {
         });
 
         // Prompt for Google Sign-In
-        window.google.accounts.id.prompt((notification) => {
+        window.google.accounts.id.prompt((notification: GoogleNotification) => {
             if (!notification) {
                 reject(new Error("Google Sign-In notification is null"));
                 return;
