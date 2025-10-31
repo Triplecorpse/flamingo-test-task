@@ -26,12 +26,16 @@ async function getAuthEmail(): Promise<string | null> {
   }
 }
 
-export async function PATCH(request: NextRequest, { params }: { params: { id: string } }) {
+export async function PATCH(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const email = await getAuthEmail();
   if (!email) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
-  const id = params.id;
+  }
+  const idParam = (await params).id;
+  const idNum = Number(idParam);
+  if (!Number.isFinite(idNum)) {
+    return NextResponse.json({ error: 'Invalid id' }, { status: 400 });
+  }
 
   let body: any;
   try {
@@ -49,7 +53,7 @@ export async function PATCH(request: NextRequest, { params }: { params: { id: st
   const { data, error } = await supabase
     .from('todos')
     .update({ item: sanitized })
-    .eq('id', id)
+    .eq('id', idNum)
     .eq('created_by', email)
     .select('*')
     .single();
@@ -64,18 +68,21 @@ export async function PATCH(request: NextRequest, { params }: { params: { id: st
   return NextResponse.json({ item: data }, { status: 200 });
 }
 
-export async function DELETE(_request: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(_request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const email = await getAuthEmail();
   if (!email) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
-  const id = params.id;
+  const idParam = (await params).id;
+  const idNum = Number(idParam);
 
-  const supabase = supabaseServer();
+    console.log(idNum);
+
+    const supabase = supabaseServer();
   const { error, count } = await supabase
     .from('todos')
     .delete({ count: 'exact' })
-    .eq('id', id)
+    .eq('id', idNum)
     .eq('created_by', email);
 
   if (error) {
